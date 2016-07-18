@@ -9,10 +9,18 @@ import java.util.List;
  * Created by Evegeny on 18/07/2016.
  */
 public class TalkingRobotImpl implements TalkingRobot {
+
     @Setter
     private List<Quoter> quoters;
     @Override
+
+    @PostConstruct
     public void talk() {
         quoters.forEach(Quoter::sayQuote);
+    }
+
+    @PostConstruct
+    public void x(){
+        System.out.println("XXXXXXXXXXx");
     }
 }
