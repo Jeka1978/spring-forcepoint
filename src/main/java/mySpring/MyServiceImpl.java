@@ -1,6 +1,7 @@
 package mySpring;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 
 /**
  * Created by Evegeny on 18/07/2016.
