@@ -3,6 +3,16 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+    <bean class="quoters.TalkingRobotImpl" init-method="talk">
+        <property name="quoters">
+            <list>
+                <ref bean="shakespearQuoter"/>
+                <ref bean="terminatorQuoter"/>
+            </list>
+        </property>
+    </bean>
+
+
     <bean id="shakespearQuoter" class="quoters.ShakespearQuoter">
         <property name="message" value="2 B || ! 2 B"/>
     </bean>
