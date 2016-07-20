@@ -6,6 +6,11 @@
 
     <context:property-placeholder location="quotes.properties"/>
 
+    <bean id="integerFactory2" class="quoters.IntegerFactory2"/>
+
+    <bean id="integer" class="java.lang.Integer" factory-bean="integerFactory2" factory-method="getInt">
+
+    </bean>
     <bean class="quoters.bpp.BeanDefinitionAnalyzerBeanFactoryPostProcessor"/>
 
     <bean class="quoters.bpp.BenchmarkBPP"/>
