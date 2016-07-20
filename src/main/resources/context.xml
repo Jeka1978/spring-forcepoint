@@ -4,14 +4,10 @@
        xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <context:property-placeholder location="quotes.properties"/>
+    <context:property-placeholder location="classpath:quotes.properties,file:prod.properties" ignore-resource-not-found="true"/>
 
-    <bean id="integerFactory2" class="quoters.IntegerFactory2"/>
-
-    <bean id="integer" class="java.lang.Integer" factory-bean="integerFactory2" factory-method="getInt">
-
-    </bean>
-    <bean class="quoters.bpp.BeanDefinitionAnalyzerBeanFactoryPostProcessor"/>
+    <context:annotation-config/>
+    <context:component-scan base-package="quoters"/>
 
     <bean class="quoters.bpp.BenchmarkBPP"/>
     <bean class="quoters.bpp.TransactionalBPP"/>
@@ -26,25 +22,11 @@
 
     <bean class="quoters.TalkingRobotImpl">
 
-        <property name="quoters">
-            <list>
-                <ref bean="shakespearQuoter"/>
-                <ref bean="terminatorQuoter"/>
-            </list>
-        </property>
+
     </bean>
 
+    <!--<context:component-scan base-package="quoters"/>-->
 
-    <bean id="shakespearQuoter" class="quoters.ShakespearQuoter">
-        <property name="message" value="${shake}"/>
-    </bean>
-    <bean id="terminatorQuoter" class="quoters.TerminatorQuoter" destroy-method="killAll">
-        <property name="messages">
-            <list>
-                <value>I'll be back</value>
-                <ref bean="anotherQuote"/>
-                <value>Astalavista baby</value>
-            </list>
-        </property>
-    </bean>
+
+
 </beans>

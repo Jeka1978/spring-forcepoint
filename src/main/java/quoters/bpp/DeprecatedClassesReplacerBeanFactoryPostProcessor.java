@@ -17,6 +17,9 @@ public class DeprecatedClassesReplacerBeanFactoryPostProcessor implements BeanFa
         for (String name : names) {
             BeanDefinition beanDefinition = beanFactory.getBeanDefinition(name);
             String beanClassName = beanDefinition.getBeanClassName();
+            if (beanClassName == null) {
+                continue;
+            }
             Class<?> beanClass = ClassUtils.resolveClassName(beanClassName, ClassLoader.getSystemClassLoader());
             if (beanClass.isAnnotationPresent(DeprecatedClass.class)) {
                 DeprecatedClass annotation = beanClass.getAnnotation(DeprecatedClass.class);

@@ -1,19 +1,29 @@
 package quoters;
 
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.ImportResource;
+import annotationExample.MailConfig;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.*;
+import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.scheduling.annotation.EnableAsync;
+
+import javax.annotation.PostConstruct;
 
 /**
  * Created by Evegeny on 18/07/2016.
  */
 @Configuration
-@EnableAsync
-//@ImportResource("classpath:context.xml")
+@Import(MailConfig.class)
+@PropertySource("classpath:quotes.properties")
 public class Config {
- /*   @Bean
-    public Quoter quoter(){
-        return new TerminatorQuoter();
+    @PostConstruct
+    public void init(){
+        System.out.println("Config is started");
+    }
+
+   /* @Bean
+    public static PropertySourcesPlaceholderConfigurer configurer(){
+        return new PropertySourcesPlaceholderConfigurer();
     }*/
+
+
 }

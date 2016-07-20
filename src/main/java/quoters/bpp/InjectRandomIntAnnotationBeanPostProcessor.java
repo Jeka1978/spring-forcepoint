@@ -14,6 +14,7 @@ import java.util.Random;
 /**
  * Created by Evegeny on 18/07/2016.
  */
+@Component
 public class InjectRandomIntAnnotationBeanPostProcessor implements BeanPostProcessor {
     @Override
     public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
