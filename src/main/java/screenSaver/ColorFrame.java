@@ -19,12 +19,7 @@ public class ColorFrame extends JFrame {
 
     @PostConstruct
     private void init(){
-        System.out.println(color.getClass());
-        System.out.println(color);
-        System.out.println(color);
-        System.out.println(color);
-        System.out.println(color);
-        System.out.println(color);
+
         setSize(250,250);
         setVisible(true);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);

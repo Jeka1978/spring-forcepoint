@@ -12,7 +12,8 @@ import javax.annotation.PostConstruct;
  * Created by Evegeny on 18/07/2016.
  */
 @Configuration
-@Import(MailConfig.class)
+//@Import(MailConfig.class)
+@EnableAspectJAutoProxy
 @PropertySource("classpath:quotes.properties")
 public class Config {
     @PostConstruct

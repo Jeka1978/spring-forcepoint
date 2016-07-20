@@ -18,7 +18,7 @@ import java.util.List;
  * Created by Evegeny on 18/07/2016.
  */
 @Component
-@Qualifier("movie")
+@Book(version = 1)
 public class TerminatorQuoter implements Quoter {
 
     private List<String> messages;
