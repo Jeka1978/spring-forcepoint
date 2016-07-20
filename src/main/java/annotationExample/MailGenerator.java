@@ -5,4 +5,5 @@ package annotationExample;
  */
 public interface MailGenerator {
     String generateHtml(MailInfo mailInfo);
+    int mailCode();
 }
